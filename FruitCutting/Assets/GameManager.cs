@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public GameObject scoreText;
+    public GameObject bestScoreText;
     public GameObject timeText;
     public GameObject finishText;
     public GameObject spawner;
@@ -18,25 +21,25 @@ public class GameManager : MonoBehaviour
 
     AudioSource timeupSound;
 
-
-    public void GetScore(){
-        score++;
+    //초기 실행 함수
+    void Awake()
+    {
+        instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         gameStart = false;
         timeupSound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameStart == true)
         {
-            timeText.GetComponent<TextMesh>().text =  time.ToString("F1") + "초";
-            scoreText.GetComponent<TextMesh>().text = score.ToString() + "점";
+            scoreText.GetComponent<TextMesh>().text = score.ToString();
+            bestScoreText.GetComponent<TextMesh>().text = "BEST: " + GetBestScore();
+            timeText.GetComponent<TextMesh>().text = time.ToString("F1") + "초";
             time -= Time.deltaTime;
 
             if (time < 0)
@@ -48,14 +51,32 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    void UpdateBestScore()
+    {
+        if (GetBestScore() < score)
+            PlayerPrefs.SetInt("BestScore", score);
+    }
+
+    int GetBestScore()
+    {
+        int bestScore = PlayerPrefs.GetInt("BestScore");
+        return bestScore;
+    }
+
+    public void GetScore(){
+        score++;
+    }
+    
+   
     IEnumerator Finish()
     {
         board.SetActive(false);
         timeupSound.Play();
         finishText.GetComponent<TextMesh>().text = "Times Up!";
         yield return new WaitForSeconds(2f);
-        finishText.GetComponent<TextMesh>().text = (((float)score / fruitNum) * 100).ToString("F1") + "% 달성하셨습니다!";//
+        finishText.GetComponent<TextMesh>().text = (((float)score / fruitNum) * 100).ToString("F1") + "% 달성하셨습니다!";
         yield return new WaitForSeconds(4f);
+        UpdateBestScore();
         SceneManager.LoadScene(0);//게임 재시작
     }
 }

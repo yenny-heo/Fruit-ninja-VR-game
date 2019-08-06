@@ -75,13 +75,13 @@
      <Compile Include="Assets\BLINDED_AM_ME package\Scripts\PortalView.cs" />
      <Compile Include="Assets\BLINDED_AM_ME package\Scripts\SetDepthTextureMode.cs" />
      <Compile Include="Assets\BLINDED_AM_ME package\Scripts\Spline3D.cs" />
-     <Compile Include="Assets\Fruit.cs" />
-     <Compile Include="Assets\FruitNinja.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Low Poly Fruits\resources\fruits_tester.cs" />
-     <Compile Include="Assets\QuitFruit.cs" />
-     <Compile Include="Assets\StartFruit.cs" />
-     <Compile Include="Assets\SwordCutter.cs" />
+     <Compile Include="Assets\Script\Fruit.cs" />
+     <Compile Include="Assets\Script\FruitNinja.cs" />
+     <Compile Include="Assets\Script\QuitFruit.cs" />
+     <Compile Include="Assets\Script\StartFruit.cs" />
+     <Compile Include="Assets\Script\SwordCutter.cs" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumbed_Specular.shader" />
@@ -104,7 +104,7 @@
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Color.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumped_Lightup.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Color_Rim_Bumped.shader" />
-     <None Include="Assets\prefab\My3DText.shader" />
+     <None Include="Assets\Materials\My3DText.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Lightup.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Texture.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Bumped_Specular.shader" />
