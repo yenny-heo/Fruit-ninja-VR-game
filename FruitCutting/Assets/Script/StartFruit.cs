@@ -10,6 +10,7 @@ public class StartFruit : MonoBehaviour
     public Image fadeImageLeft;
     public GameObject readyText;
     public GameObject board;
+    public GameObject logo;
     public GameObject quitFruit;
     bool flag = false;
     AudioSource clickSound;
@@ -23,7 +24,7 @@ public class StartFruit : MonoBehaviour
     {
         //과일 회전
         float frequency = -60 * Time.deltaTime;
-        transform.Rotate(0, 0, frequency);
+        transform.Rotate(0, frequency, 0);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -55,7 +56,8 @@ public class StartFruit : MonoBehaviour
             fadeImageLeft.color = startColorLeft;
             yield return new WaitForSeconds(0.01f);
         }
-        yield return new WaitForSeconds(0.02f);
+        logo.SetActive(false);
+        yield return new WaitForSeconds(0.03f);
         for (int i = 0; i < 100; i++)
         {
             startColorRight.a = startColorRight.a - 0.01f;

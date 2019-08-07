@@ -32,8 +32,8 @@ public class FruitNinja : MonoBehaviour
                 fruitNum++;
                 Rigidbody temp = go.GetComponent<Rigidbody>();//선택된 과일 정보 가져옴
 
-                temp.velocity = new Vector3(0f, Random.Range(3f, 5f), -0.5f);//속도 설정
-                temp.angularVelocity = new Vector3(5f, 0f, 5f);//각속도 설정 (물체 회전)
+                temp.velocity = new Vector3(0f, Random.Range(4f, 6f), -0.5f);//속도 설정
+                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));//각속도 설정 (물체 회전)
                 temp.useGravity = true;//중력 설정
 
                 Vector3 pos = transform.position;

@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\BLINDED_AM_ME package\Editor\MeshColliderPerMaterial_Editor.cs" />
      <Compile Include="Assets\BLINDED_AM_ME package\Editor\Spline3D_Editor.cs" />
+     <Compile Include="Assets\XWeaponTrail\Editor\XWeaponTrailEditor.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -248,6 +249,12 @@
  </Reference>
  <Reference Include="Unity.Locator">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/Managed/Unity.Locator.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-CSharp-firstpass">
+ <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-CSharp-Editor-firstpass">
+ <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -651,10 +658,6 @@
       <Project>{9FCFA62C-7B9D-7682-A4C4-6E93C89CFEB4}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{FAA40531-15C7-0ADA-FEC6-85B44F42C1B0}</Project>
-      <Name>SteamVR_Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{60012B63-BBE3-7D42-78B7-1FBBA2558FD4}</Project>
       <Name>SteamVR_Input_Editor</Name>
@@ -670,6 +673,10 @@
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
       <Project>{30524508-456D-2B4A-D7C8-CCFB6426C4C4}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{FAA40531-15C7-0ADA-FEC6-85B44F42C1B0}</Project>
+      <Name>SteamVR_Actions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

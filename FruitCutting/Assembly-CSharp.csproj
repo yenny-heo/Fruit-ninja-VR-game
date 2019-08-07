@@ -76,12 +76,16 @@
      <Compile Include="Assets\BLINDED_AM_ME package\Scripts\SetDepthTextureMode.cs" />
      <Compile Include="Assets\BLINDED_AM_ME package\Scripts\Spline3D.cs" />
      <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\Low Poly Fruits\resources\fruits_tester.cs" />
      <Compile Include="Assets\Script\Fruit.cs" />
      <Compile Include="Assets\Script\FruitNinja.cs" />
      <Compile Include="Assets\Script\QuitFruit.cs" />
      <Compile Include="Assets\Script\StartFruit.cs" />
      <Compile Include="Assets\Script\SwordCutter.cs" />
+     <Compile Include="Assets\XWeaponTrail\Scripts\Spline.cs" />
+     <Compile Include="Assets\XWeaponTrail\Scripts\SplineControlPoint.cs" />
+     <Compile Include="Assets\XWeaponTrail\Scripts\VertexPool.cs" />
+     <Compile Include="Assets\XWeaponTrail\Scripts\XWeaponTrail.cs" />
+     <Compile Include="Assets\XWeaponTrail\Scripts\XWeaponTrailDemo.cs" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumbed_Specular.shader" />
@@ -89,6 +93,7 @@
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Lightup.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Clip_Plane.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Diffuse_UnlitRimColor.shader" />
+     <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\burnThrough.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\DiffuseBumped_UnlitRimColorBumped.shader" />
@@ -96,8 +101,10 @@
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Clip_Box.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Bumped.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Bumped_Lightup.shader" />
+     <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Texture_Rim.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\CelShaded_ShadowDetails.shader" />
+     <None Include="Assets\XWeaponTrail\readme.txt" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Portal.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Clip_Radius.shader" />
@@ -109,6 +116,7 @@
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Texture.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Bumped_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Color_Rim.shader" />
+     <None Include="Assets\XWeaponTrail\Shader\xft_displacement_screen.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumbed.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -301,6 +309,9 @@
  </Reference>
  <Reference Include="Unity.Locator">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/Managed/Unity.Locator.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-CSharp-firstpass">
+ <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -670,10 +681,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{FAA40531-15C7-0ADA-FEC6-85B44F42C1B0}</Project>
-      <Name>SteamVR_Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{60012B63-BBE3-7D42-78B7-1FBBA2558FD4}</Project>
       <Name>SteamVR_Input_Editor</Name>
@@ -689,6 +696,10 @@
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
       <Project>{30524508-456D-2B4A-D7C8-CCFB6426C4C4}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{FAA40531-15C7-0ADA-FEC6-85B44F42C1B0}</Project>
+      <Name>SteamVR_Actions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

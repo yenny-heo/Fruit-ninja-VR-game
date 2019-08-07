@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         board.SetActive(false);
         timeupSound.Play();
         finishText.GetComponent<TextMesh>().text = "Times Up!";
+        Debug.Log(score + " " + fruitNum);
         yield return new WaitForSeconds(2f);
         finishText.GetComponent<TextMesh>().text = (((float)score / fruitNum) * 100).ToString("F1") + "% 달성하셨습니다!";
         yield return new WaitForSeconds(4f);

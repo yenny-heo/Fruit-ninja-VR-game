@@ -55,14 +55,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
-     <Compile Include="Assets\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
-     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Initialization.cs" />
-     <None Include="Assets\SteamVR_Input\SteamVR_Actions.asmdef" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_buggy.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_default.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_mixedreality.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\ActionSetClasses\SteamVR_Input_ActionSet_platformer.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\SteamVR_Input_Actions.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+     <Compile Include="Assets\SteamVR\SteamVR_Input\SteamVR_Input_Initialization.cs" />
+     <None Include="Assets\SteamVR\SteamVR_Input\SteamVR_Actions.asmdef" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>

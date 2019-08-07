@@ -17,7 +17,6 @@ public class SwordCutter : MonoBehaviour {
     {
 
         GameObject victim = collision.collider.gameObject;
-
         //점수 증가
         if (victim.tag == "Fruit")
         {
@@ -37,6 +36,7 @@ public class SwordCutter : MonoBehaviour {
             temp.convex = true;
 
         }
+        Destroy(pieces[0], 1);
         Destroy(pieces[1], 1);//잘려진 조각 없앰(left side & right side)
     }
     

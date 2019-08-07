@@ -20,6 +20,6 @@ public class QuitFruit : MonoBehaviour
     {
 
         float frequency = 60 * Time.deltaTime;
-        transform.Rotate(0, 0, frequency);
+        transform.Rotate(0, frequency, 0);
     }
 }
