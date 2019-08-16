@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8454461481529934598}
   - component: {fileID: 8444054995740120816}
   - component: {fileID: 8434050737624460746}
-  - component: {fileID: 3358290932213089644}
   m_Layer: 10
   m_Name: KiwiHalf_LOD1
   m_TagString: Untagged
@@ -78,20 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3358290932213089644
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8456070769336387362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 3a7ff2f0fe343fb4aa1270b9767896bf, type: 3}
 --- !u!1 &8456070769894498456
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 8456070772006836998}
   m_LocalRotation: {x: 0, y: 0.32000118, z: 0, w: 0.94741714}
   m_LocalPosition: {x: 1.093, y: 0, z: 0.018084034}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 8454461483711591910}
   - {fileID: 8454461481529934598}

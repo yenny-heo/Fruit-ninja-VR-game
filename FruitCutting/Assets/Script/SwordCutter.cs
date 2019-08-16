@@ -13,11 +13,11 @@ public class SwordCutter : MonoBehaviour {
     }
 
     //물체가 충돌했을 때 호출되는 함수. TriggerEnter는 물리적 계산 X CollisionEnter가 후르츠 닌자에는 적합.
+
     void OnCollisionEnter(Collision collision)
     {
 
         GameObject victim = collision.collider.gameObject;
-        //점수 증가
         if (victim.tag == "Fruit")
         {
             GameManager.instance.GetScore();

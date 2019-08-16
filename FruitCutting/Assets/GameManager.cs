@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject spawner;
     public GameObject board;
     public bool gameStart;
-    int score = 0;
-    float time = 40.0f;
+    int score;
+    float time;
     int fruitNum;
     float scorePercent;
 
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameStart = false;
+        score = 0;
+        time = 40.0f;
         timeupSound = GetComponent<AudioSource>();
     }
 

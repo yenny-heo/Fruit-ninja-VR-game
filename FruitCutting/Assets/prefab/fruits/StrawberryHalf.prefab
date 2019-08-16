@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 6500694026221858196}
   - component: {fileID: 6506595821008298398}
   - component: {fileID: 6514625465204933936}
-  - component: {fileID: 6501279468718448847}
   m_Layer: 10
   m_Name: StrawberryHalf_LOD1
   m_TagString: Untagged
@@ -256,17 +255,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6501279468718448847
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6501687933484737658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: b0e4e2be536acca429f4e39cef6706f3, type: 3}
