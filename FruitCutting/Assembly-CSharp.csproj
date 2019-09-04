@@ -81,12 +81,7 @@
      <Compile Include="Assets\Script\QuitFruit.cs" />
      <Compile Include="Assets\Script\StartFruit.cs" />
      <Compile Include="Assets\Script\SwordCutter.cs" />
-     <Compile Include="Assets\XWeaponTrail\Scripts\Spline.cs" />
-     <Compile Include="Assets\XWeaponTrail\Scripts\SplineControlPoint.cs" />
-     <Compile Include="Assets\XWeaponTrail\Scripts\VertexPool.cs" />
-     <Compile Include="Assets\XWeaponTrail\Scripts\XWeaponTrail.cs" />
-     <Compile Include="Assets\XWeaponTrail\Scripts\XWeaponTrailDemo.cs" />
-     <None Include="Assets\LowPolyLandscape\새 텍스트 문서.txt" />
+     <None Include="Assets\Materials\BlurShader.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumbed_Specular.shader" />
@@ -105,7 +100,6 @@
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Texture_Rim.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\CelShaded_ShadowDetails.shader" />
-     <None Include="Assets\XWeaponTrail\readme.txt" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Portal.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Clip_Radius.shader" />
@@ -117,25 +111,24 @@
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Texture.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Transparent_Bumped_Specular.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Intersection_Color_Rim.shader" />
-     <None Include="Assets\XWeaponTrail\Shader\xft_displacement_screen.shader" />
      <None Include="Assets\BLINDED_AM_ME package\Shaders\Dual_Textured_Bumbed.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -321,16 +314,16 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="Valve.Newtonsoft.Json">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>D:/UnityProject/VaRoon_VR-Ninja/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>D:/UnityProject/FruitCutting/Fruit-ninja-VR-game/FruitCutting/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
