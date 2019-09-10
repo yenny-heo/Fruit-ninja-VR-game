@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject finishText;
     public GameObject spawner;
     public GameObject board;
+    public GameObject dominantEye;
+    public GameObject blurPanel;
     public bool gameStart;
     int score;
     float time;
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
         score = 0;
         time = 40.0f;
         timeupSound = GetComponent<AudioSource>();
+        blurPanel.transform.parent = dominantEye.transform;//우세안 블러처리
+        
     }
 
     void Update()
