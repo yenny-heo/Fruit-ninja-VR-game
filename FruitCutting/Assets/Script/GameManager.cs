@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
     float time;
     int fruitNum;
     float scorePercent;
+    string token;
 
     AudioSource timeupSound;
 
@@ -86,4 +90,5 @@ public class GameManager : MonoBehaviour
         UpdateBestScore();
         SceneManager.LoadScene(0);//게임 재시작
     }
+
 }

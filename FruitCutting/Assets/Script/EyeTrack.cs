@@ -12,7 +12,7 @@ namespace ViveSR
         {
             public class EyeTrack : MonoBehaviour
             {
-                public bool NeededToGetData = true;
+                public bool NeededToGetData = false;
                 private static EyeData eyeData = new EyeData();
                 private bool eye_callback_registered = false;
                 private Vector2 LeftEye = Vector2.zero;
@@ -34,18 +34,7 @@ namespace ViveSR
                         SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
                     if(NeededToGetData)
                     {
-                        if (SRanipal_Eye_Framework.Instance.EnableEyeDataCallback == true && eye_callback_registered == false)
-                        {
-                            SRanipal_Eye.WrapperRegisterEyeDataCallback(Marshal.GetFunctionPointerForDelegate((SRanipal_Eye.CallbackBasic)EyeCallback));
-                            eye_callback_registered = true;
-                        }
-                        else if (SRanipal_Eye_Framework.Instance.EnableEyeDataCallback == false && eye_callback_registered == true)
-                        {
-                            SRanipal_Eye.WrapperUnRegisterEyeDataCallback(Marshal.GetFunctionPointerForDelegate((SRanipal_Eye.CallbackBasic)EyeCallback));
-                            eye_callback_registered = false;
-                        }
-                        else if (SRanipal_Eye_Framework.Instance.EnableEyeDataCallback == false)
-                            SRanipal_Eye_API.GetEyeData(ref eyeData);
+                       // SRanipal_Eye.GetEyeData(ref eyeData);
 
                         bool isLeftEyeActive = false;
                         bool isRightEyeAcitve = false;
@@ -83,7 +72,7 @@ namespace ViveSR
                             else if (SRanipal_Eye.GetGazeRay(GazeIndex.RIGHT, out GazeOriginCombinedLocal, out GazeDirectionCombinedLocal)) { }
 
                         }
-                        UpdateGazeRay(GazeDirectionCombinedLocal);
+                        
                     }
                 }
             }
