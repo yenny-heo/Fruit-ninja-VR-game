@@ -30,7 +30,7 @@ namespace ViveSR
                 /// <summary>
                 /// Whether to use callback to get data.
                 /// </summary>
-                public bool EnableEyeDataCallback = false;
+                public bool EnableEyeDataCallback = true;
 
                 /// <summary>
                 /// Which version of eye prediction engine will be used, default is version 1.

@@ -319,7 +319,8 @@ namespace ViveSR
                     }
                     else if (SRanipal_Eye_Framework.Status == SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT)
                     {
-                        origin = Camera.main.transform.position;
+                        if(gazeIndex == GazeIndex.LEFT) origin = Camera.allCameras[0].transform.position;
+                        else origin = Camera.allCameras[1].transform.position;
                         valid = true;
                     }
                     ray = new Ray(origin, direction);
@@ -349,12 +350,20 @@ namespace ViveSR
                 /// <param name="focusableLayer">A layer id that is used to selectively ignore object.</param>
                 /// <param name="eye_data">ViveSR.anipal.Eye.EyeData. </param>
                 /// <returns>Indicates whether the ray hits a collider.</returns>
-                public static bool Focus(GazeIndex index, out Ray ray, out FocusInfo focusInfo, float radius, float maxDistance, int focusableLayer, EyeData eye_data)
+                  public static bool Focus(GazeIndex index, out Ray ray, out FocusInfo focusInfo, float radius, float maxDistance, int focusableLayer, EyeData eye_data)
                 {
                     bool valid = GetGazeRay(index, out ray, eye_data);
                     if (valid)
                     {
-                        Ray rayGlobal = new Ray(Camera.main.transform.position, Camera.main.transform.TransformDirection(ray.direction));
+                        Ray rayGlobal;
+                        if (index == GazeIndex.LEFT)
+                        {
+                            rayGlobal = new Ray(Camera.allCameras[0].transform.position, Camera.allCameras[0].transform.TransformDirection(ray.direction));
+                        }
+                        else
+                        {
+                            rayGlobal = new Ray(Camera.allCameras[1].transform.position, Camera.allCameras[1].transform.TransformDirection(ray.direction));
+                        }
                         RaycastHit hit;
                         if (radius == 0) valid = Physics.Raycast(rayGlobal, out hit, maxDistance, focusableLayer);
                         else valid = Physics.SphereCast(rayGlobal, radius, out hit, maxDistance, focusableLayer);
