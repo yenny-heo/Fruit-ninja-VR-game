@@ -70,7 +70,7 @@ public class StartFruit : MonoBehaviour
         readyText.GetComponent<TextMesh>().text = "40초";
         yield return new WaitForSeconds(2f);
         clickSound.Play();
-        readyText.GetComponent<TextMesh>().text = "GO!";
+        readyText.GetComponent<TextMesh>().text = "Round 1";
         yield return new WaitForSeconds(1f);
         readyText.GetComponent<TextMesh>().text = "";
         //게임 시작

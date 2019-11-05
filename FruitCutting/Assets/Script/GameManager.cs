@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
+using System;
+using UnityEngine.UI;
+
+
 public class prescriptionData {
     public string mainEye;
     public int verticalMin;
@@ -12,6 +16,7 @@ public class prescriptionData {
     public int horizontalMin;
     public int horizontalMax;
     public int objectMin;
+    public int objectMax;
     public int blurMax;
     public int blurMin;
     public int vividMax;
@@ -30,26 +35,35 @@ public class GameManager : MonoBehaviour {
     public GameObject spawner;
     public GameObject board;
     public GameObject blurPanel;
+    public Image fadeImageRight;
+    public Image fadeImageLeft;
     public bool gameStart;
-    int score;
-    float time;
-    int fruitNum;
-    float scorePercent;
-    string url = "http://15.164.220.109/Api/MediBoard/TrainingChart";
-    string token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZGJkMWZmYWM5ZTc3YzAwMDE2ZWU2YzMiLCJyb2xlcyI6IlJPTEVfUGF0aWVudCIsImlhdCI6MTU3MjY5OTYzOCwiZXhwIjoxNTcyNzAzMjM4fQ.v6hfVNKLAmJ2gVYBDsW2ZaJc11lyvb2v78zPSiECKfs";
-    private prescriptionData preData;
+    private int score;
+    private float time;
+    private int fruitNum;
+    private float scorePercent;
+    private string url = "http://15.164.220.109/Api/MediBoard/TrainingChart";
+    private string[] arguments;
+    private int round;
+    
+    public string token;
+    public prescriptionData preData;
 
     AudioSource timeupSound;
 
     //초기 실행 함수
     void Awake () {
         instance = this;
+        arguments = Environment.GetCommandLineArgs();
     }
 
     void Start () {
         gameStart = false;
+        //토큰 받아오기
+        token = arguments[1].ToString();
         //게임 시작 전 처방 데이터 받아오기
         StartCoroutine(GetData());
+        round = 1;//라운드 1
         score = 0;
         time = 40.0f;
         timeupSound = GetComponent<AudioSource> ();
@@ -57,18 +71,37 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update () {
-        if (gameStart == true) {
+        if (gameStart == true && round == 1) {
             scoreText.GetComponent<TextMesh> ().text = score.ToString ();
             bestScoreText.GetComponent<TextMesh> ().text = "BEST: " + GetBestScore ();
             timeText.GetComponent<TextMesh> ().text = time.ToString ("F1") + "초";
             time -= Time.deltaTime;
-            if (time < 0)
+            
+            //1 round 끝
+            if (time < 0 && round == 1)
+            {
+                round = 2; 
+                gameStart = false;
+                time = 0;
+                fruitNum = spawner.GetComponent<FruitNinja> ().fruitNum;
+                //게임 끝나고, 집중도 데이터 보내기
+                //GameObject.Find ("EyeFocusCheck").GetComponent<ViveSR.anipal.Eye.EyeFocusCheck> ().PostData ();
+
+                StartCoroutine ("Round2");
+            }
+        }
+        else if(gameStart == true && round == 2){
+            scoreText.GetComponent<TextMesh> ().text = score.ToString ();
+            bestScoreText.GetComponent<TextMesh> ().text = "BEST: " + GetBestScore ();
+            timeText.GetComponent<TextMesh> ().text = time.ToString ("F1") + "초";
+            time -= Time.deltaTime;
+             if (time < 0 && round == 2)
             {
                 gameStart = false;
                 time = 0;
                 fruitNum = spawner.GetComponent<FruitNinja> ().fruitNum;
                 //게임 끝나고, 집중도 데이터 보내기
-                GameObject.Find ("EyeFocusCheck").GetComponent<ViveSR.anipal.Eye.EyeFocusCheck> ().PostData ();
+              //  GameObject.Find ("EyeFocusCheck").GetComponent<ViveSR.anipal.Eye.EyeFocusCheck> ().PostData ();
 
                 StartCoroutine ("Finish");
             }
@@ -97,6 +130,41 @@ public class GameManager : MonoBehaviour {
             blurPanel.transform.parent = GameObject.FindWithTag("rightEye").transform;
         }
         else blurPanel.transform.parent = GameObject.FindWithTag("leftEye").transform;
+    }
+
+    IEnumerator Round2 () {
+        board.SetActive (false);
+        timeupSound.Play ();
+        finishText.GetComponent<TextMesh> ().text = "Times Up!";
+        yield return new WaitForSeconds (2f);
+        finishText.GetComponent<TextMesh> ().text = "잠시 휴식 후 2라운드 시작됩니다.";
+        yield return new WaitForSeconds (2f);
+        Color startColorRight = fadeImageRight.color;
+        Color startColorLeft = fadeImageLeft.color;
+        //fade out
+        startColorRight.a = 1.0f;
+        fadeImageRight.color = startColorRight;
+        startColorLeft.a = 1.0f;
+        fadeImageLeft.color = startColorRight;
+        yield return new WaitForSeconds (5f);//5초 휴식
+        //fade in
+        startColorRight.a = 0;
+        fadeImageRight.color = startColorRight;
+        startColorLeft.a = 0;
+        fadeImageLeft.color = startColorRight;
+        yield return new WaitForSeconds (1f);
+        finishText.GetComponent<TextMesh>().text = "40초";
+        yield return new WaitForSeconds(2f);
+        timeupSound.Play();
+        finishText.GetComponent<TextMesh>().text = "Round 2";
+        yield return new WaitForSeconds(1f);
+        finishText.GetComponent<TextMesh>().text = "";
+        //게임 시작
+        board.SetActive(true);
+        round = 2;
+        time = 40.0f;
+        gameStart = true;
+
     }
 
     IEnumerator Finish () {

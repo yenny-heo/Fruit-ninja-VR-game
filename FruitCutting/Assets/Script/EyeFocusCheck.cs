@@ -12,29 +12,23 @@ namespace ViveSR.anipal.Eye {
         public string curGame;
         public string date;
         public int focus;
-        public leftPd leftPd;
-        public rightPd rightPd;
-        public FocusData(string curGame, string date, int focus, leftPd leftPd, rightPd rightPd)
+        public int blur;
+        public string mainEye;
+        public pd pd;
+        public FocusData(string curGame, string date, int focus, int blur, string mainEye, pd pd)
         {
             this.curGame = curGame;
             this.date = date;
             this.focus = focus;
-            this.leftPd = leftPd;
-            this.rightPd = rightPd;
+            this.blur = blur;
+            this.mainEye = mainEye;
+            this.pd = pd;
         }
     }
-    public class leftPd{
+    public class pd{
         public double horizontal;
         public double vertical;
-        public leftPd(double horizontal, double vertical){
-            this.horizontal = horizontal;
-            this.vertical = vertical;
-        }
-    }
-    public class rightPd{
-        public double horizontal;
-        public double vertical;
-        public rightPd(double horizontal, double vertical){
+        public pd(double horizontal, double vertical){
             this.horizontal = horizontal;
             this.vertical = vertical;
         }
@@ -49,7 +43,7 @@ namespace ViveSR.anipal.Eye {
         private bool eye_callback_registered = false;
         private int correct, incorrect;
         private string url = "http://15.164.220.109/Api/MediBoard/Result/Playlog";
-        private string token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZGJkMWZmYWM5ZTc3YzAwMDE2ZWU2YzMiLCJyb2xlcyI6IlJPTEVfUGF0aWVudCIsImlhdCI6MTU3MjY4NjQ3MSwiZXhwIjoxNTcyNjkwMDcxfQ.dQSiTM_IJUa1mj93X83bOUk0ExcEnf04uwI_sFezFFw";
+        private string token;
         void Start () {
             if (!SRanipal_Eye_Framework.Instance.EnableEye) {
                 enabled = false;
@@ -127,15 +121,21 @@ namespace ViveSR.anipal.Eye {
             string today = DateTime.Now.ToString("yyyy-MM-dd");
             int focus;
             if(correct+incorrect == 0) focus = 0;
-            else focus = (correct* 100) / (correct + incorrect); // correct / (correct+incorrect) * 100 => 소수점 아래 자르기 필요.
-            leftPd leftPd = new leftPd(2, 2);
-            rightPd rightPd = new rightPd(3, 3);
-            FocusData data = new FocusData(curGame, today, focus, leftPd, rightPd);
+            else focus = (correct* 100) / (correct + incorrect);
+            int blur = 1;//blur 수정 필요
+            string mainEye = GameObject.Find("GameManager").GetComponent<GameManager>().preData.mainEye;
+
+            pd pd = new pd(2, 2);//pd 수정 필요
+            FocusData data = new FocusData(curGame, today, focus, blur, mainEye, pd);
  
             // Convert Data to Json
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
             Debug.Log(json);
  
+            //token 받아오기
+            GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            token = gameManager.token;
+
             // Post json Data to Server
             StartCoroutine(PostRequest(url, json));
 
