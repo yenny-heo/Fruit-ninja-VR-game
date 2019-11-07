@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using SimpleJSON;
 using UnityEngine.Networking;
 using System;
-using Newtonsoft.Json;
 
 namespace ViveSR.anipal.Eye {
       public class FocusData
@@ -24,7 +24,12 @@ namespace ViveSR.anipal.Eye {
             this.mainEye = mainEye;
             this.pd = pd;
         }
+        public string ToJson()
+        {
+            return JsonUtility.ToJson(this, false);
+        }
     }
+    [System.Serializable]
     public class pd{
         public double horizontal;
         public double vertical;
@@ -115,29 +120,29 @@ namespace ViveSR.anipal.Eye {
 
         //Focus DATA post
 
-        public void PostData()
+        public void PostData(int blurData, double hori, double verti)
         {
             string curGame = "fruitCutting";
-            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            string today = DateTime.Now.ToString("yyyy.MM.dd.HH:mm");
             int focus;
             if(correct+incorrect == 0) focus = 0;
             else focus = (correct* 100) / (correct + incorrect);
-            int blur = 1;//blur 수정 필요
+            int blur = blurData;
             string mainEye = GameObject.Find("GameManager").GetComponent<GameManager>().preData.mainEye;
 
-            pd pd = new pd(2, 2);//pd 수정 필요
+            pd pd = new pd(hori, verti);//pd 수정 필요
             FocusData data = new FocusData(curGame, today, focus, blur, mainEye, pd);
  
             // Convert Data to Json
-            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
-            Debug.Log(json);
- 
+            string body = data.ToJson();
+            Debug.Log(body);
+
             //token 받아오기
             GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             token = gameManager.token;
 
             // Post json Data to Server
-            StartCoroutine(PostRequest(url, json));
+            StartCoroutine(PostRequest(url, body));
 
         }
         IEnumerator PostRequest(string url, string json){
@@ -149,6 +154,8 @@ namespace ViveSR.anipal.Eye {
             uwr.SetRequestHeader("accept", "application/json;charset=UTF-8");
             uwr.SetRequestHeader("X-AUTH-TOKEN", token);
             yield return uwr.SendWebRequest();
+            correct = 0;
+            incorrect = 0;
             if(uwr.isNetworkError || uwr.isHttpError){
                 Debug.Log("Error While Sending "+uwr.error);
             } else{

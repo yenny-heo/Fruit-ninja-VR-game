@@ -81,6 +81,9 @@
      <Compile Include="Assets\Script\Fruit.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\QuitFruit.cs" />
+     <Compile Include="Assets\Script\SimpleJSON.cs" />
+     <Compile Include="Assets\Script\SimpleJSONBinary.cs" />
+     <Compile Include="Assets\Script\SimpleJSONUnity.cs" />
      <Compile Include="Assets\Script\StartFruit.cs" />
      <Compile Include="Assets\Script\SwordCutter.cs" />
      <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\DartBoard.cs" />
