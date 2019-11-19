@@ -61,9 +61,9 @@ public class GameManager : MonoBehaviour {
         arguments = Environment.GetCommandLineArgs ();
         //토큰 받아오기
 
-        //token = arguments[1].ToString();
-        token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZGM0MmFlNWM5ZTc3YzAwMDFkYzYwMTYiLCJyb2xlcyI6IlJPTEVfUGF0aWVudCIsImlhdCI6MTU3MzE0Mjc2MSwiZXhwIjoxNTczMTQ2MzYxfQ.YaFk2JuUvdmVNrUKMg5EWDk8mTcQmR1Ja2HWdzjMiUA";
-        gameTime = 10.0f;
+        token = arguments[1].ToString();
+        //token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZGM0MmFlNWM5ZTc3YzAwMDFkYzYwMTYiLCJyb2xlcyI6IlJPTEVfUGF0aWVudCIsImlhdCI6MTU3MzE0Mjc2MSwiZXhwIjoxNTczMTQ2MzYxfQ.YaFk2JuUvdmVNrUKMg5EWDk8mTcQmR1Ja2HWdzjMiUA";
+        gameTime = 60.0f;
 
         //게임 시작 전 처방 데이터 받아오기
         StartCoroutine ("GetData");
@@ -206,10 +206,14 @@ public class GameManager : MonoBehaviour {
         float vertiMax = (float) (preData.verticalMax * 0.57);
         if (preData.mainEye == "leftEye") //왼쪽이 주시안일 경우
         {
+            //블러 최대값 적용
+            blurPanel.GetComponent<Image>().material.SetFloat("_Radius", preData.blurMax);
             //약시안인 오른쪽 각도 변경
             GameObject.Find ("CameraRight").GetComponent<Transform> ().rotation = Quaternion.Euler (vertiMax, horiMax, 0);
         } else //오른쪽이 주시안일 경우
         {
+            //블러 최대값 적용
+            blurPanel.GetComponent<Image>().material.SetFloat("_Radius", preData.blurMax);
             //약시안인 왼쪽 각도 변경
             GameObject.Find ("CameraLeft").GetComponent<Transform> ().rotation = Quaternion.Euler (vertiMax, horiMax, 0);
         }
